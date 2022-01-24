@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  backend:
+    image: ${PROJ_NAME}:latest
+    container_name: ${PROJ_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/go/src/app
+    ports:
+      - ${BACK_DEV_PORT}:${BACK_DEV_PORT}
+    tty: true
